@@ -6,6 +6,7 @@ namespace algostructs
         static void Main()
         { 
             Stack<int>.test(10);
+            Queue<int>.test(10);
         }
     }
 }
