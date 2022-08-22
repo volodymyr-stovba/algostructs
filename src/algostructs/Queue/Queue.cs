@@ -11,7 +11,7 @@ namespace algostructs
         private uint _capacity;
 
         public bool IsEmpty() => _front_index == -1;
-        public bool IsFull() => _front_index == 0 && _rear_index >= _capacity - 1;
+        public bool IsFull() => _rear_index == _capacity - 1;
 
         public Queue(uint size)
         {
@@ -135,6 +135,68 @@ namespace algostructs
             {
                 Console.WriteLine("Queue should be not full");
             }
+
+            for (var index = 1; index <= size * 2; ++index)
+            {
+                if (queue.IsFull())
+                {
+                    break;
+                }
+                queue.Enqueue(index);
+            }
+
+            for (var index = 1; index < size / 2; ++index)
+            {
+                if (queue.IsEmpty())
+                {
+                    break;
+                }
+                queue.Dequeue(out item);
+            }
+
+            if (queue.IsEmpty())
+            {
+                Console.WriteLine("Queue should be not empty");
+            }
+
+            if (!queue.IsFull())
+            {
+                Console.WriteLine("Queue should be full");
+            }
+
+            for (var index = 1; index <= size * 2; ++index)
+            {
+                if (queue.IsFull())
+                {
+                    break;
+                }
+                queue.Enqueue(index);
+            }
+
+            for (var index = size / 2; index <= size; ++index)
+            {
+                if (queue.IsEmpty())
+                {
+                    break;
+                }
+                queue.Dequeue(out item);
+
+                if (item != index)
+                {
+                    Console.WriteLine("Queue order was corrupted. Item: {0}, Check value: {1}", item, index);
+                }
+            }
+
+            if (!queue.IsEmpty())
+            {
+                Console.WriteLine("Queue should be empty");
+            }
+
+            if (queue.IsFull())
+            {
+                Console.WriteLine("Queue should be not full");
+            }
+
         }
     }
 }
