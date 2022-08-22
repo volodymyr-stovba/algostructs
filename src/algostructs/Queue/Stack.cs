@@ -6,12 +6,12 @@ namespace algostructs
     { 
         private T[] _array;
         private int _top_index = -1;
-        private uint _capacity;
+        private int _capacity;
 
         public bool IsEmpty() => _top_index == -1;
         public bool IsFull() => _top_index + 1 >= _capacity;
 
-        public Stack(uint size)
+        public Stack(int size)
         {
             _capacity = size;
             _array = new T[_capacity];
@@ -51,7 +51,7 @@ namespace algostructs
             return true;
         }
 
-        public static void test(uint size)
+        public static void test(int size)
         {
             Stack<int> stack = new Stack<int>(size);
 

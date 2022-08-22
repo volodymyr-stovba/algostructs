@@ -8,12 +8,12 @@ namespace algostructs
         private int _front_index = -1;
         private int _rear_index = -1;
         private T[] _array;
-        private uint _capacity;
+        private int _capacity;
 
         public bool IsEmpty() => _front_index == -1;
         public bool IsFull() => _rear_index == _capacity - 1;
 
-        public Queue(uint size)
+        public Queue(int size)
         {
             _capacity = size;
             _array = new T[_capacity];
@@ -69,7 +69,7 @@ namespace algostructs
             return true;
         }
 
-        public static void test(uint size)
+        public static void test(int size)
         {
             Queue<int> queue = new Queue<int>(size);
 
