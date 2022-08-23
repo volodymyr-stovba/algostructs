@@ -1,4 +1,6 @@
 ﻿
+using algostructs.Queue;
+
 namespace algostructs
 {
     class algostructs
@@ -9,6 +11,7 @@ namespace algostructs
             Stack<int>.test(size);
             Queue<int>.test(size);
             CircularQueue<int>.test(size);
+            Deque<int>.test(size);
         }
     }
 }
