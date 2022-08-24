@@ -34,7 +34,7 @@ namespace algostructs
             return true;
         }
 
-        public bool Dequeue(out T item)
+        public bool Dequeue(out T? item)
         {
             item = default;
 
@@ -57,9 +57,10 @@ namespace algostructs
             return true;
         }
 
-        public bool Peek(out T item)
+        public bool Peek(out T? item)
         {
             item = default;
+
             if (IsEmpty())
             {
                 return false;

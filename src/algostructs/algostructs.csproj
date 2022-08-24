@@ -9,8 +9,10 @@
 
   <ItemGroup>
     <None Remove="Queue\" />
+    <None Remove="List\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Queue\" />
+    <Folder Include="List\" />
   </ItemGroup>
 </Project>

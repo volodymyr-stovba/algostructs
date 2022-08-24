@@ -121,9 +121,10 @@ namespace algostructs.Queue
             return true;
         }
 
-        public bool Front(out T item)
+        public bool Front(out T? item)
         {
             item = default;
+
             if (IsEmpty())
             {
                 return false;
@@ -134,11 +135,11 @@ namespace algostructs.Queue
             return true;
         }
 
-        public bool Rear(out T item)
+        public bool Rear(out T? item)
         {
             item = default;
 
-            if(IsEmpty() || _rear_index == -1)
+            if (IsEmpty() || _rear_index == -1)
             {
                 return false;
             }

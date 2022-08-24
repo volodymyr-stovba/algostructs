@@ -27,10 +27,10 @@ namespace algostructs
             return true;
         }
 
-        public bool Pop(out T item)
+        public bool Pop(out T? item)
         {
             item = default;
-
+           
             if (IsEmpty())
             {
                 return false;
@@ -39,7 +39,7 @@ namespace algostructs
             return true;
         }      
 
-        public bool Peek(out T item)
+        public bool Peek(out T? item)
         {
             item = default;
 
