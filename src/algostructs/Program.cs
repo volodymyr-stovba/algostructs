@@ -1,4 +1,5 @@
 ﻿
+using algostructs.List;
 using algostructs.Queue;
 
 namespace algostructs
@@ -13,6 +14,7 @@ namespace algostructs
             CircularQueue<int>.test(size);
             Deque<int>.test(size);
             LinkedList<int>.test(size);
+            DoublyLinkedList<int>.test(size);
         }
     }
 }
