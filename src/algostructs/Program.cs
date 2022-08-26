@@ -15,6 +15,7 @@ namespace algostructs
             Deque<int>.test(size);
             LinkedList<int>.test(size);
             DoublyLinkedList<int>.test(size);
+            CircularLinkedList<int>.test(size);
         }
     }
 }
