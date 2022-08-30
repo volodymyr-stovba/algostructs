@@ -16,6 +16,7 @@ namespace algostructs
             LinkedList<int>.test(size);
             DoublyLinkedList<int>.test(size);
             CircularLinkedList<int>.test(size);
+            CircularDoublyLinkedList<int>.test(size);
         }
     }
 }

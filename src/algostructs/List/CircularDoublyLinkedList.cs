@@ -1,19 +1,18 @@
 ﻿using System;
-using System.Threading;
-
 namespace algostructs.List
 {
-    public class CircularLinkedList<T>
+    public class CircularDoublyLinkedList<T>
     {
-
         public class Node<D>
         {
             public D data;
+            public Node<D>? prev;
             public Node<D>? next;
 
             public Node(D data)
             {
                 this.data = data;
+                prev = null;
                 next = null;
             }
         }
@@ -24,24 +23,27 @@ namespace algostructs.List
 
         public bool IsEmpty() => _last == null;
 
-        public CircularLinkedList()
+        public CircularDoublyLinkedList()
         {
-
         }
 
         public Node<T> PushFront(T data)
         {
             var newNode = new Node<T>(data);
 
-            if (_last == null)
+            if (_last == null) // push first item
             {
                 _last = newNode;
+                newNode.prev = _last;
                 newNode.next = _last;
             }
-            else
+            else // push to front
             {
                 newNode.next = _last.next;
+                newNode.next.prev = newNode;
+                
                 _last.next = newNode;
+                newNode.prev = _last;
             }
             return newNode;
         }
@@ -59,7 +61,8 @@ namespace algostructs.List
             }
             else
             {
-                _last.next = _last.next.next;
+                _last.next.next.prev = _last;            
+                _last.next = _last.next.next;                
             }
 
             return true;
@@ -74,11 +77,16 @@ namespace algostructs.List
             {
                 _last = newNode;
                 newNode.next = _last;
+                newNode.prev = newNode;
             }
             else
             {
                 newNode.next = _last.next;
                 _last.next = newNode;
+
+                newNode.prev = _last;                               
+                newNode.next.prev = newNode;
+
                 _last = newNode;
             }
             return newNode;
@@ -97,15 +105,23 @@ namespace algostructs.List
             }
             else
             {
-                _last = _last.next;
+                _last.prev.next = _last.next;
+                _last.next.prev = _last.prev;
+
+                _last = _last.prev;
             }
 
             return true;
         }
 
+        public Node<T>? Next(Node<T> currentNode)
+        {
+            return currentNode.next;
+        }
+
         public static void test(int size)
         {
-            CircularLinkedList<int> list = new CircularLinkedList<int>();
+            CircularDoublyLinkedList<int> list = new CircularDoublyLinkedList<int>();
 
             for (var index = 1; index <= size; ++index)
             {
@@ -114,7 +130,7 @@ namespace algostructs.List
 
             if (list.IsEmpty())
             {
-                Console.WriteLine("CircularLinkedList should be not empty");
+                Console.WriteLine("CircularDoublyLinkedList should be not empty");
             }
 
             for (var index = 1; index <= size; ++index)
@@ -124,7 +140,7 @@ namespace algostructs.List
 
             if (!list.IsEmpty())
             {
-                Console.WriteLine("CircularLinkedList should be empty");
+                Console.WriteLine("CircularDoublyLinkedList should be empty");
             }
         }
     }
