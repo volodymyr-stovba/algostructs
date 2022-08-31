@@ -17,6 +17,7 @@ namespace algostructs
             DoublyLinkedList<int>.test(size);
             CircularLinkedList<int>.test(size);
             CircularDoublyLinkedList<int>.test(size);
+            HashSet.test(size);
         }
     }
 }
